@@ -110,11 +110,11 @@ def revise_sentence_and_test_list_5_ways(selected_inds, selected_words, tok_sent
 Main
 '''
 
-selected_inds, selected_words, tok_sent = readTag("tagged_test.txt")
+selected_inds, selected_words, tok_sent = readTag("tagged_test_toxic_data.txt")
 print('Number of sentences:',len(selected_inds))
 folder_prefix = 'output/separated_by_revised_type/'
 Folder_List = [folder_prefix+'add',folder_prefix+'delete',folder_prefix+'replace',folder_prefix+'permute',folder_prefix+'separate']
-for i in range(96,int(len(selected_inds)/100)+1):
+for i in range(0,int(len(selected_inds)/100)+1):
     print('Processing the %d-th batch of 100 sentences\n' % i)
     All_Sentences_Scores = revise_sentence_and_test_list_5_ways(selected_inds[i*100:i*100+100], selected_words[i*100:i*100+100], tok_sent[i*100:i*100+100], Folder_List, 'sentences_and_revised_scores'+str(i)+'_')
     #print(len(All_Sentences_Scores))
